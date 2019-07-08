@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay () {
+                let randomNumber = Math.random();
+                let result;
+                if (randomNumber < 1.0 / 3.0) {
+                    result = "Rock";
+                }
+                else if (randomNumber < 2.0 / 3.0) {
+                    result = "Paper";
+                }
+                else {
+                    result = "Scissors";
+                }
+                return result;
+            }
+        </script>
+    </body>
+</html>
