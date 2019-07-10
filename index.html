@@ -19,6 +19,40 @@
                 }
                 return result;
             }
+            function playRound (playerSelection, computerSelection) {
+                let computerAnswer = computerSelection.toLowerCase();
+                let playerAnswer = playerSelection.toLowerCase();
+                let result;
+                if (computerAnswer == playerAnswer) {
+                    result = "It's a tie! Both you and the computer gave the answer " + computerAnswer + "!";
+                }
+                else if (computerAnswer == "rock" && playerAnswer == "scissors") {
+                    result = "You lose! Rock beats scissors!";
+                }
+                else if (computerAnswer == "rock" && playerAnswer == "paper") {
+                    result = "You win! Paper beats rock!"
+                }
+                else if (computerAnswer == "paper" && playerAnswer == "rock") {
+                    result = "You lose! Paper beats rock!";
+                }
+                else if (computerAnswer = "paper" && playerAnswer == "scissors") {
+                    result = "You win! Scissors beats paper!";
+                }
+                else if (computerAnswer == "scissors" && playerAnswer == "paper") {
+                    result = "You lose! Scissors beats paper!"
+                }
+                else if (computerAnswer == "scissors" && playerAnswer == "rock") {
+                    result = "You win! Rock beats scissors!"
+                }
+                //Just incase I missed some scenario
+                else {
+                    result = "Error! Unanticipated scenario! Function playRound(x, y) is incomplete";
+                }
+                return result;
+            }
+            let computer = computerPlay();
+            let player = "rock";
+            console.log(playRound(player, computer));
         </script>
     </body>
 </html>
