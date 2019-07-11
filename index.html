@@ -5,6 +5,8 @@
     </head>
     <body>
         <script>
+            let playerScore = 0;
+            let computerScore = 0;
             function computerPlay () {
                 let randomNumber = Math.random();
                 let result;
@@ -24,25 +26,31 @@
                 let playerAnswer = playerSelection.toLowerCase();
                 let result;
                 if (computerAnswer == playerAnswer) {
-                    result = "It's a tie! Both you and the computer gave the answer " + computerAnswer + "!";
+                    result = "It's a tie for this round! Both you and the computer gave the answer " + computerAnswer + "!";
                 }
                 else if (computerAnswer == "rock" && playerAnswer == "scissors") {
-                    result = "You lose! Rock beats scissors!";
+                    result = "You lose this round! Rock beats scissors!";
+                    computerScore++;
                 }
                 else if (computerAnswer == "rock" && playerAnswer == "paper") {
-                    result = "You win! Paper beats rock!";
+                    result = "You win this round! Paper beats rock!";
+                    playerScore++;
                 }
                 else if (computerAnswer == "paper" && playerAnswer == "rock") {
-                    result = "You lose! Paper beats rock!";
+                    result = "You lose this round! Paper beats rock!";
+                    computerScore++;
                 }
                 else if (computerAnswer == "paper" && playerAnswer == "scissors") {
-                    result = "You win! Scissors beats paper!";
+                    result = "You win this round! Scissors beats paper!";
+                    playerScore++;
                 }
                 else if (computerAnswer == "scissors" && playerAnswer == "paper") {
-                    result = "You lose! Scissors beats paper!";
+                    result = "You lose this round! Scissors beats paper!";
+                    computerScore++;
                 }
                 else if (computerAnswer == "scissors" && playerAnswer == "rock") {
-                    result = "You win! Rock beats scissors!";
+                    result = "You win this round! Rock beats scissors!";
+                    playerScore++;
                 }
                 //Just incase I missed some scenario
                 else {
@@ -51,8 +59,25 @@
                 return result;
             }
             function game () {
-
+                let i = 0;
+                while(i < 5) {
+                    let playerVar = prompt("Rock, paper, or scissors?");
+                    let computerVar = computerPlay();
+                    let answer = playRound(playerVar, computerVar)
+                    alert(answer + "\n");
+                    i++;
+                }
+                if(playerScore > computerScore) {
+                    alert("YOU WIN!");
+                }
+                else if (playerScore == computerScore) {
+                    alert("There was a tie.");
+                }
+                else {
+                    alert("You lose.");
+                }
             }
+            game();
         </script>
     </body>
 </html>
